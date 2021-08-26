@@ -17,7 +17,7 @@ export const register = async (req, res) => {
       const message = error.errors[key].message
       res.status(400).send({ success: false, message: message })
     } else if (error.name === 'MongoError' && error.code === 11000) {
-      res.status(400).send({ success: false, message: '帳號已存在' })
+      res.status(400).send({ success: false, message: '帳號或信箱已存在' })
     } else {
       res.status(500).send({ success: false, message: '伺服器錯誤' })
     }
